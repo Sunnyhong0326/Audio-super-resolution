@@ -21,7 +21,7 @@ python prepare_vctk.py
 The processed dataset will be saved in data folder
 
 # Training
-### After setting up anaconda environment in linux, you can type the following commands to train an AudioUNet
+### Type the following commands to train an AudioUNet
 ```shell
 # change directory to the folder AudioUnet
 cd AudioUnet
@@ -29,9 +29,16 @@ cd AudioUnet
 python train.py --exp $(name) --num_epochs $(#epochs you want to train)
 ```
 
-## Results after training
-1. In results/$(name), you can see the spectrogram of one specific audio compared with the ground truth audio every epoch. Also, it is name "Epoch{i_epoch}_spectrogram.png"
-2. In ckpts/$(name).pth is your model after training
+# Results after training
+1. In results/$(name), you can see the loss curve, LSD curve and PSNR curve which is named after Loss.jpg, Avg LSD Curve.jpg and Avg PSNR Curve.jpg
+2. In ckpts/$(name).pth is your trained model after training
 
 # Run pretrained model (Testing)
 Execute test.ipynb and change your pretrained model to the correct path (e.g. ./ckpts/$(name)/pth)
+
+# Model Architecture
+![overallmodel](imgs/AFILM_MRSTFT.jpg)
+# Model Blocks
+![modelblk](imgs/model_blk.jpg)
+# Results after reconstruction
+![spectrogram](imgs/output.png)
