@@ -1,0 +1,9 @@
+librosa
+matplotlib
+argparse
+tqdm
+scipy
+pathlib
+imageio
+numpy
+h5py
