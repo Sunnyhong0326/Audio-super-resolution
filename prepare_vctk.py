@@ -148,23 +148,23 @@ def load_wav_list(dirname, num_speakers = 10, num_files = 20):
 
 
 def prepare_vctk():
-    #single_train_lr_file_list = load_wav_list('./data/train/train/16k', num_speakers = 1, num_files = -1)
+    single_train_lr_file_list = load_wav_list('./data/train/train/16k', num_speakers = 1, num_files = -1)
     single_train_hr_file_list = load_wav_list('./data/train/train/48k', num_speakers = 1, num_files = -1 )
 
-    #single_val_lr_file_list = load_wav_list('./data/val/val/16k', num_speakers = 1, num_files = -1)
+    single_val_lr_file_list = load_wav_list('./data/val/val/16k', num_speakers = 1, num_files = -1)
     single_val_hr_file_list = load_wav_list('./data/val/val/48k', num_speakers = 1, num_files = -1)
 
-    preprocess2(single_train_hr_file_list, filename='Single_Train_Dataset.h5')
-    preprocess2(single_val_hr_file_list, filename='Single_Valid_Dataset.h5')
+    preprocess(single_train_lr_file_list, single_train_hr_file_list, filename='Multiple_Train_Dataset.h5', stride=4096)
+    preprocess(single_val_lr_file_list, single_val_hr_file_list, filename='Multiple_Valid_Dataset.h5', stride=4096)
 
-    # multiple_train_lr_file_list = load_wav_list('./data/train/train/16k', num_speakers = -1, num_files = 20)
-    # multiple_train_hr_file_list = load_wav_list('./data/train/train/48k', num_speakers = -1, num_files = 20)
+    multiple_train_lr_file_list = load_wav_list('./data/train/train/16k', num_speakers = -1, num_files = 20)
+    multiple_train_hr_file_list = load_wav_list('./data/train/train/48k', num_speakers = -1, num_files = 20)
 
-    # multiple_val_lr_file_list = load_wav_list('./data/val/val/16k', num_speakers= 10, num_files = 20)
-    # multiple_val_hr_file_list = load_wav_list('./data/val/val/48k', num_speakers= 10, num_files = 20)
+    multiple_val_lr_file_list = load_wav_list('./data/val/val/16k', num_speakers= 10, num_files = 20)
+    multiple_val_hr_file_list = load_wav_list('./data/val/val/48k', num_speakers= 10, num_files = 20)
 
-    # preprocess(multiple_train_lr_file_list, multiple_train_hr_file_list, filename='Multiple_Train_Dataset.h5', stride=4096)
-    # preprocess(multiple_val_lr_file_list, multiple_val_hr_file_list, filename='Multiple_Valid_Dataset.h5')
+    preprocess(multiple_train_lr_file_list, multiple_train_hr_file_list, filename='Multiple_Train_Dataset.h5')
+    preprocess(multiple_val_lr_file_list, multiple_val_hr_file_list, filename='Multiple_Valid_Dataset.h5')
     
 
 if __name__ == "__main__":
